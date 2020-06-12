@@ -145,7 +145,9 @@ namespace com.tikumo.regdiff
 
         private bool DefaultProcessFunc(string arg)
         {
-            if (arg.StartsWith("/"))
+            if (arg.StartsWith("/") &&
+                Environment.OSVersion.Platform != PlatformID.Unix &&
+                Environment.OSVersion.Platform != PlatformID.MacOSX)
             {
                 arg = arg.Substring(1);
             }
