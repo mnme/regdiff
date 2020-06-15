@@ -164,7 +164,7 @@ namespace com.tikumo.regis3
         /// <param name="value">existing value</param>
         public void AskToRemoveValue(RegKeyEntry key, RegValueEntry value)
         {
-            key = AskToAddKey(key);
+            key = FindOrCreateKey(key.Path);
             if (value.IsDefaultValue)
             {
                 key.DefaultValue = new RegValueEntry(value);
@@ -185,7 +185,7 @@ namespace com.tikumo.regis3
         /// <param name="value">existing value</param>
         public void AskToAddValue(RegKeyEntry key, RegValueEntry value)
         {
-            key = AskToAddKey(key);
+            key = FindOrCreateKey(key.Path);
             if (value.IsDefaultValue)
             {
                 key.DefaultValue = new RegValueEntry(value);
